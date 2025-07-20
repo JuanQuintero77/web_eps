@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agenda - Portal Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- RUTA CORREGIDA -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- NAVBAR CORREGIDA PARA EL PORTAL PROFESIONAL -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top" style="background-color: #16a085;">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/profesional/dashboard}"><i class="bi bi-heart-pulse-fill"></i> Portal Profesional</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/profesional/dashboard}">Agenda</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/profesional/perfil_profesional}">Mi Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido -->
+    <div class="container my-5">
+        <div class="header-card mb-5" style="background: linear-gradient(to right, #16a085, #1abc9c);">
+            <h2>Dr. Carlos Gomez</h2>
+            <p class="lead">Agenda para hoy: Domingo, 20 de julio de 2025</p>
+        </div>
+
+        <!-- Lista de Citas del Día -->
+        <div class="row g-4">
+            <!-- Cita 1 -->
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <strong><i class="bi bi-clock me-2"></i>09:00 AM</strong>
+                        <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle">Confirmada</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Maria Rodriguez</h5>
+                        <p class="card-text text-muted">CC 12345678</p>
+                        <p><strong>Motivo:</strong> Control general.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 text-end">
+                        <a th:href="@{/profesional/paciente(cita=1)}" class="btn btn-primary">Atender Paciente</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cita 2 -->
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <strong><i class="bi bi-clock me-2"></i>09:30 AM</strong>
+                        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">En Sala de Espera</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Pedro Pascal</h5>
+                        <p class="card-text text-muted">CC 87654321</p>
+                        <p><strong>Motivo:</strong> Dolor de cabeza persistente.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 text-end">
+                        <a th:href="@{/profesional/paciente(cita=2)}" class="btn btn-primary">Atender Paciente</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/app.js}"></script>
+</body>
+</html>

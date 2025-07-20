@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Afiliado - Bienestar EPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h2 class="card-title text-center mb-4">Crear Cuenta de Afiliado</h2>
+                        <form id="form-registro" novalidate>
+                            <div class="row">
+                                <div class="col-md-6 mb-3"><label for="nombre" class="form-label">Nombres</label><input type="text" class="form-control" id="nombre" name="nombre" required></div>
+                                <div class="col-md-6 mb-3"><label for="apellido" class="form-label">Apellidos</label><input type="text" class="form-control" id="apellido" name="apellido" required></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3"><label for="tipo_documento" class="form-label">Tipo de Documento</label><select class="form-select" id="tipo_documento" name="tipo_documento" required><option selected disabled value="">Elegir...</option><option value="CC">Cédula de Ciudadanía</option><option value="TI">Tarjeta de Identidad</option><option value="CE">Cédula de Extranjería</option></select></div>
+                                <div class="col-md-6 mb-3"><label for="numero_documento" class="form-label">Número de Documento</label><input type="text" class="form-control" id="numero_documento" name="numero_documento" required></div>
+                            </div>
+                            <div class="mb-3"><label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label><input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required></div>
+                            <div class="mb-3"><label for="direccion" class="form-label">Dirección</label><input type="text" class="form-control" id="direccion" name="direccion" required></div>
+                            <div class="mb-3"><label for="telefono" class="form-label">Teléfono</label><input type="tel" class="form-control" id="telefono" name="telefono" required></div>
+                            <hr>
+                            <div class="mb-3"><label for="correo" class="form-label">Correo Electrónico (será tu usuario)</label><input type="email" class="form-control" id="correo" name="correo" required></div>
+                            <div class="mb-3"><label for="contrasena" class="form-label">Contraseña</label><input type="password" class="form-control" id="contrasena" name="contrasena" required></div>
+                            <div class="mb-3"><label for="id_plan_salud" class="form-label">Selecciona tu Plan de Salud</label><select class="form-select" id="id_plan_salud" name="id_plan_salud" required><option value="1">Plan Básico</option><option value="2">Plan Complementario</option></select></div>
+                            <div class="d-grid mt-4"><button type="submit" class="btn btn-primary">Registrarme</button></div>
+                            <div class="text-center mt-3"><a th:href="@{/}">Ya tengo una cuenta</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registroSuccessModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header bg-success text-white"><h5 class="modal-title"><i class="bi bi-check-circle-fill me-2"></i>¡Registro Exitoso!</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body">Tu cuenta ha sido creada. Ahora serás redirigido para iniciar sesión.</div><div class="modal-footer"><a th:href="@{/}" class="btn btn-primary">Ir a Iniciar Sesión</a></div></div></div></div>
+    <div class="modal fade" id="registroErrorModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header bg-danger text-white"><h5 class="modal-title"><i class="bi bi-exclamation-triangle-fill me-2"></i>Error en el Registro</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body modal-body-error">Hubo un problema al procesar tu solicitud.</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button></div></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/app.js}"></script>
+</body>
+</html>
