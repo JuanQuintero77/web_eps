@@ -20,7 +20,7 @@ public class PlanSalud {
     private String nombrePlan;
 
     @Column(name = "descripcion", nullable = false)
-    private String cobertura;
+    private String descripcion;
 
     @Column(name = "costo_mensual", nullable = false)
     private String costoMensual;

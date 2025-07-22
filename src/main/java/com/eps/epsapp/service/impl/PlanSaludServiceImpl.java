@@ -36,7 +36,7 @@ public class PlanSaludServiceImpl implements PlanSaludService {
         if (optionalPlan.isPresent()) {
             PlanSalud planExistente = optionalPlan.get();
             planExistente.setNombrePlan(planSaludActualizado.getNombrePlan());
-            planExistente.setCobertura(planSaludActualizado.getCobertura());
+            planExistente.setDescripcion(planSaludActualizado.getDescripcion());
             planExistente.setCostoMensual(planSaludActualizado.getCostoMensual()); // ← FALTABA
             return planSaludRepository.save(planExistente);
         }

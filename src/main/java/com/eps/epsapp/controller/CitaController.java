@@ -27,6 +27,11 @@ public class CitaController {
         return cita.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/profesional/{idProfesional}")
+    public List<Cita> obtenerAgendaPorProfesional(@PathVariable Integer idProfesional) {
+        return citaService.obtenerCitasPorProfesional(idProfesional);
+    }
+
     @PostMapping
     public Cita guardar(@RequestBody Cita cita) {
         return citaService.guardar(cita);

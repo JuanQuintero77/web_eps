@@ -32,22 +32,24 @@ public class CitaServiceImpl implements CitaService {
 
     @Override
     public Cita actualizar(Integer id, Cita citaActualizada) {
-        Optional<Cita> optionalCita = citaRepository.findById(id);
-        if (optionalCita.isPresent()) {
-            Cita citaExistente = optionalCita.get();
-            citaExistente.setAfiliado(citaActualizada.getAfiliado());
-            citaExistente.setProfesional(citaActualizada.getProfesional());
-            citaExistente.setFecha(citaActualizada.getFecha());
-            citaExistente.setHora(citaActualizada.getHora());
-            citaExistente.setMotivo(citaActualizada.getMotivo());
-            citaExistente.setEstadoCita(citaActualizada.getEstadoCita());
-            return citaRepository.save(citaExistente);
-        }
-        return null;
+        return citaRepository.findById(id).map(cita -> {
+            cita.setAfiliado(citaActualizada.getAfiliado());
+            cita.setProfesional(citaActualizada.getProfesional());
+            cita.setFecha(citaActualizada.getFecha());
+            cita.setHora(citaActualizada.getHora());
+            cita.setMotivo(citaActualizada.getMotivo());
+            cita.setEstadoCita(citaActualizada.getEstadoCita());
+            return citaRepository.save(cita);
+        }).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
         citaRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Cita> obtenerCitasPorProfesional(Integer idProfesional) {
+        return citaRepository.findByProfesional_IdProfesional(idProfesional);
     }
 }

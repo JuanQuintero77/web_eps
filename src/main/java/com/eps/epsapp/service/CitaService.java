@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CitaService {
 
-    List<Cita> listarTodos(); // ✅ Nombre correcto
+    List<Cita> listarTodos();
 
     Optional<Cita> obtenerPorId(Integer id);
 
@@ -16,4 +16,6 @@ public interface CitaService {
     Cita actualizar(Integer id, Cita citaActualizada);
 
     void eliminar(Integer id);
+
+    List<Cita> obtenerCitasPorProfesional(Integer idProfesional); // ✅ Nuevo
 }

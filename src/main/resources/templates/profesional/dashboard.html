@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Agenda - Portal Profesional</title>
+    <title>Agenda Profesional</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <div id="profesional-data" th:data-profesional-id="${profesionalId}"></div>
 
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top" style="background-color: #16a085;">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/profesional/dashboard}">
+                <i class="bi bi-heart-pulse-fill"></i> Portal Profesional
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/profesional/dashboard}">Agenda</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/profesional/perfil_profesional}">Mi Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado -->
     <div class="container my-5">
-        <div id="agenda-container" class="row g-4">
+        <div class="mb-4 text-center">
+            <h2 id="nombreProfesional" class="fw-bold text-success">Dr. Profesional</h2>
+            <p id="fechaAgenda" class="lead text-muted">Agenda completa del día</p>
+        </div>
+
+        <!-- Contenedor de citas -->
+        <div class="row g-4" id="contenedorCitas">
             <div class="col-12 text-center">
-                <div class="spinner-border text-primary" role="status"></div>
+                <div class="spinner-border text-success" role="status"></div>
                 <p class="mt-2">Cargando agenda...</p>
             </div>
         </div>
